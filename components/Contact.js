@@ -1,16 +1,21 @@
 var Contact = React.createClass({
-    propTypes: {
-      item: React.PropTypes.object.isRequired
-    },
-  
-    render: function () {
-      return (
-        <div className={"contactItem"}>
-        <img className={"contactImage"} src={"http://icons.veryicon.com/ico/System/100%20Flat%20Vol.%202/contacts.ico"}/>
-        <p className={"contactLabel"}>Imię: {this.props.item.firstName}</p>
-        <p className={"contactLabel"}>Nazwisko: {this.props.item.lastName}</p>
-        <a className={"contactEmail"} href={"mailo:" + this.props.item.email}> {this.props.item.email}</a>
-      </div>
-      );
-    }
-  });
+  propTypes: {
+    item: React.PropTypes.object.isRequired,
+  },
+
+  render: function() {
+    return (
+      React.createElement('div', {className: 'contactItem'},
+        React.createElement('img', {
+          className: 'contactImage',
+          src: 'data:image/png;base64,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'
+        }),
+        React.createElement('p', {className: 'contactLabel'}, 'Imię: ' + this.props.item.firstName),
+        React.createElement('p', {className: 'contactLabel'}, 'Nazwisko: ' + this.props.item.lastName),
+        React.createElement('a', {className: 'contactEmail', href: 'mailto:' + this.props.item.email},
+          this.props.item.email
+        )
+      )
+    );
+  },
+});
