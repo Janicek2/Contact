@@ -36,6 +36,7 @@
     "onchange": "^3.3.0"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "rimraf": "^2.6.2"
   }
